@@ -1,36 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html>
-	<title>Update your password</title>
+	<!-- Get css style and declare title -->
+	<head>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+		<title>Update Password</title>
+	</head>
+<body>
 
-	<h1>Update password</h1>
+	<!-- Display flashed messages -->
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				{{message}}<br>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	
+	<!-- Lock page behind login -->
+	{% if LOGGED_IN %}
 
-	<form method="post">
-		<table>
-			<tr>
-				<td>
-					<label for="username">Username</label>
-				</td>
-
-				<td>
-					<input name="username" id="username" required>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label for="password">Password</label>
-				</td>
-
-				<td>
-					<input type="password" name="password" id="password" required>
-				</td>
-			</tr>
-
-			<tr>
-				<td colspan='2'>
-					<input type="submit" value="Update Password">
-				</td>
-			</tr>
-		</table>
-	</form>
-</html>
+		<h1>Update Password</h1>
+		<form method=post>
+			<label for="password">New Password:</label><br>
+			<input type="password" id="password" name="password" value = "{{request.form.password}}"><br>
+			<input type="submit" value="Reset Password">
+		</form>
+	
+	{% else %}
+		You must be logged in to view this page.<br>
+		<a href="/register">Register</a>
+		<a href="/login"> Login</a>
+	{% endif %}
+	
+<body>
+<html>

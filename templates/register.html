@@ -1,36 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html>
-	<title>Register for the Application</title>
+	<!-- Get css style and declare title -->
+	<head>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+		<title>Register</title>
+	</head>
+<body>
+
+	<!-- Display flashed messages -->
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				{{message}}<br>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
 
 	<h1>Register</h1>
-
-	<form method="post">
-		<table>
-			<tr>
-				<td>
-					<label for="username">Username</label>
-				</td>
-
-				<td>
-					<input name="username" id="username" required>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label for="password">Password</label>
-				</td>
-
-				<td>
-					<input type="password" name="password" id="password" required>
-				</td>
-			</tr>
-
-			<tr>
-				<td colspan='2'>
-					<input type="submit" value="Register">
-				</td>
-			</tr>
-		</table>
+	<form method=post>
+		<label for="username">Username:</label><br>
+		<input type="text" id="username" name="username" value = "{{request.form.username}}"><br>
+		<label for="password">Password:</label><br>
+		<input type="password" id="password" name="password" value = "{{request.form.password}}"><br>
+		<input type="submit" value="Register">
 	</form>
-</html>
+	
+	<br><a href="/login">Login</a>
+<body>
+<html>
