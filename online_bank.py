@@ -11,10 +11,11 @@ Execute:
 
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, flash
-from login import create, verify, change
+from file_methods import create, verify, change, update_balance
 
 #Tracks the logged-in user
 LOGGED_IN = None
+BALANCE = 0
 
 #Initialize Flask app
 app = Flask(__name__)
@@ -34,13 +35,26 @@ def hello(name=None):
     """
     return render_template("hello.html", name=name)
     
-@app.route("/home/")
+@app.route("/home/", methods=["GET", "POST"])
 def home(current_user=None):
     """
     Home page after logging in
     """
+    
+    #Update balance
+    if request.method == "POST":
+        deposit = float(request.form["deposit"] or 0)
+        withdraw = float(request.form["withdraw"] or 0)
+        global BALANCE
+        if BALANCE + deposit - withdraw < 0:
+            flash("Withdraw amount cannot exceed balance.")
+        else:
+            BALANCE += deposit - withdraw
+            update_balance(LOGGED_IN, BALANCE)
+    
+    #User must be logged in to view page
     if LOGGED_IN:
-        return render_template("home.html", name=LOGGED_IN)
+        return render_template("home.html", name=LOGGED_IN, balance="{:.2f}".format(BALANCE))
     return redirect(url_for("login"))
 
 @app.route("/register/", methods=["GET", "POST"])
@@ -64,7 +78,9 @@ def login():
     Render method for login page
     """
     if request.method == "POST":
-        if verify(request.form["username"], request.form["password"]):
+        global BALANCE
+        BALANCE = verify(request.form["username"], request.form["password"])
+        if BALANCE > -1:
             global LOGGED_IN
             LOGGED_IN = request.form["username"]
             flash("Successfully logged in.")

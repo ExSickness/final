@@ -12,8 +12,18 @@
 	{% endwith %}
 	
 	<h1>  Hello welcome home {{name}} </h1>
-	<h3> <a href="/update/"> update password</a> </h3>
-	<h3> <a href="/logout/"> logout</a> </h3>
+	<h2> You current balance is ${{balance}} </h2>
+	
+	<form method=post>
+		<label for="deposit">Deposit $</label>
+		<input type="number" min="0" step="0.01" value="0" id="deposit" name="deposit" value = "{{request.form.deposit}}"><br>
+		<label for="withdraw">Withdraw $</label>
+		<input type="number" min="0" step="0.01" value="0" id="withdraw" name="withdraw" value = "{{request.form.withdraw}}"><br>
+		<input type="submit" value="Submit">
+	</form>
+	
+	<h3> <a href="/update/"> Update Password</a> </h3>
+	<h3> <a href="/logout/"> Logout</a> </h3>
 	
 </body>
 </html>

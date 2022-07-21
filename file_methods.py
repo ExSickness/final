@@ -1,9 +1,9 @@
 """
-    Manages the usernames and passwords in data.csv
+    Manages the usernames, passwords, and balances in data.csv
     Author: John Garber
     Class: SDEV 300-7383
     Date Created: 2022-05-02
-    Last Updated: 2022-05-09
+    Last Updated: 2022-07-21
 """
 
 import socket
@@ -64,7 +64,7 @@ def verify(username, password):
         for line in file:
             if line.split()[0] == username:
                 if crypt.verify(password, line.split()[1]):
-                    return True
+                    return float(line.split()[2])
 
     #Log failed login attempt
     with open(LOG_FILE, "a", encoding="UTF-8") as file:
@@ -72,7 +72,7 @@ def verify(username, password):
         timestamp = datetime.now().strftime("%Y-%m-%d %I:%M%p")
         file.write(f"user={username}, timestamp={timestamp}, ip={ip}\n")
 
-    return False
+    return -1
 
 def create(username, password):
     """Create new username-hash pair if username is unique and password is valid"""
@@ -126,6 +126,25 @@ def change(username, password):
         for pair in pairs:
             if pair[0] == username:
                 pair[1] = hashed
+
+            file.write(f"{pair[0]} {pair[1]} {pair[2]}\n")
+
+    return None
+
+def update_balance(username, balance):
+    """Updates user balance in data.txt"""
+
+    #Read in credentials list
+    pairs = []
+    with open(CREDENTIALS_FILE, encoding="UTF-8") as file:
+        for line in file:
+            pairs.append(line.split())
+
+    #Rewrite crendtials file with new password
+    with open(CREDENTIALS_FILE, "w", encoding="UTF-8") as file:
+        for pair in pairs:
+            if pair[0] == username:
+                pair[2] = "{:.2f}".format(balance)
 
             file.write(f"{pair[0]} {pair[1]} {pair[2]}\n")
 
