@@ -1,5 +1,5 @@
 """
-    Manages the usernames and passwords in creds.csv
+    Manages the usernames and passwords in data.csv
     Author: John Garber
     Class: SDEV 300-7383
     Date Created: 2022-05-02
@@ -10,7 +10,7 @@ import socket
 from datetime import datetime
 from passlib.hash import sha256_crypt as crypt
 
-CREDENTIALS_FILE = "creds.txt"
+CREDENTIALS_FILE = "data.txt"
 UNSECURE_FILE = "CommonPasswords.txt"
 LOG_FILE = "log.txt"
 
@@ -100,7 +100,7 @@ def create(username, password):
     hashed = crypt.hash(password)
 
     with open(CREDENTIALS_FILE, "a", encoding="UTF-8") as file:
-        file.write(f"{username} {hashed}\n")
+        file.write(f"{username} {hashed} 0\n")
 
     return None
 
@@ -127,6 +127,6 @@ def change(username, password):
             if pair[0] == username:
                 pair[1] = hashed
 
-            file.write(f"{pair[0]} {pair[1]}\n")
+            file.write(f"{pair[0]} {pair[1]} {pair[2]}\n")
 
     return None

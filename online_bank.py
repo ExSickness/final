@@ -4,7 +4,7 @@ Class:
 Date: 2022-07-18
 
 Execute:
-  export FLASK_APP=FinalProject.py
+  export FLASK_APP=online_bank.py
   flask run
   Web Browser navigate to http://127.0.0.1:5000/
 """

@@ -1,0 +1,2 @@
+bonja $5$rounds=535000$BFD6bVB3dweKrCJW$D1tWEKVTrFgb1s8O7klR1VcUnKKfCW9xvrf3ER7t6S0 0
+test $5$rounds=535000$UfgmQk0c6fG8IDtj$ta9rUdHHaWkKzfWpmT6wOVuB30Edzm83ynxqfdKmW/1 0
