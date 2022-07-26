@@ -1,12 +1,15 @@
 """
-Authors: Alex, John
-Class:
-Date: 2022-07-18
+    Main file for online bank project
+    Authors: Alexander Samuels and John Garber
+    Class: CMSC 495-6981
+    Date Created: 2022-07-18
+    Last Updated: 2022-07-26
 
-Execute:
-  export FLASK_APP=online_bank.py
-  flask run
-  Web Browser navigate to http://127.0.0.1:5000/
+    Instructions to run:
+        Using command prompt, navigate to this file's folder,
+        enter "set FLASK_APP=online_bank"
+        followed by "python -m flask run"
+        Using a web browser, navigate to localhost:5000 or http://127.0.0.1:5000/
 """
 
 from datetime import datetime

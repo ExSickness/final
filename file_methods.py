@@ -1,7 +1,7 @@
 """
     Manages the usernames, passwords, and balances in data.csv
     Author: John Garber
-    Class: SDEV 300-7383
+    Class: CMSC 495-6981
     Date Created: 2022-05-02
     Last Updated: 2022-07-21
 """
