@@ -8,7 +8,6 @@ Execute:
   flask run
   Web Browser navigate to http://127.0.0.1:5000/
 """
-
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, flash
 from file_methods import create, verify, change, update_balance
