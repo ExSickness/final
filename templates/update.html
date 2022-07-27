@@ -24,15 +24,15 @@
 		<form method=post>
 			<div>
 				<label for="password">New Password:</label><br>
-				<input type="password" id="password" name="password" required \
-				placeholder="Enter Password"><br>
+				<input type="password" id="password" name="password"\
+				placeholder="Enter Password" required value = "{{request.form.password}}"><br>
 				
-			</div>
-				<label for="password">Confirm New Password:</label><br>
-				<input type="password" id="confirm_password" name="Confirm New Password"\
-				placeholder="Confirm Password" required value = "{{request.form.password}}"><br>
+			</div><div>
+				<label for="confirm">Confirm New Password:</label><br>
+				<input type="password" id="confirm" name="confirm"\
+				placeholder="Confirm Password" required value = "{{request.form.confirm}}"><br>
 				<input type="submit" value="Reset Password">
-			<div>
+			</div>
 
 
 			

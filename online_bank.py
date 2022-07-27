@@ -92,7 +92,10 @@ def update():
     Render method for update page
     """
     if request.method == "POST":
-        error = change(LOGGED_IN, request.form["password"])
+        if request.form["password"] != request.form["confirm"]:
+            error = "Passwords do not match."
+        else:
+            error = change(LOGGED_IN, request.form["password"])
 
         if error is None:
             flash("Successfully updated password.")
