@@ -4,12 +4,6 @@
     Class: CMSC 495-6981
     Date Created: 2022-07-18
     Last Updated: 2022-07-26
-
-    Instructions to run:
-        Using command prompt, navigate to this file's folder,
-        enter "set FLASK_APP=online_bank"
-        followed by "python -m flask run"
-        Using a web browser, navigate to localhost:5000 or http://127.0.0.1:5000/
 """
 
 from datetime import datetime
