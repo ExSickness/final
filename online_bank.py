@@ -5,7 +5,6 @@
     Date Created: 2022-07-18
     Last Updated: 2022-07-26
 """
-
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, flash
 from file_methods import create, verify, change, update_balance
@@ -93,7 +92,10 @@ def update():
     Render method for update page
     """
     if request.method == "POST":
-        error = change(LOGGED_IN, request.form["password"])
+        if request.form["password"] != request.form["confirm"]:
+            error = "Passwords do not match."
+        else:
+            error = change(LOGGED_IN, request.form["password"])
 
         if error is None:
             flash("Successfully updated password.")
