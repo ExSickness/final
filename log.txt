@@ -2,3 +2,4 @@ user=test, timestamp=2022-07-27 05:32PM, ip=192.168.56.1
 user=test, timestamp=2022-07-27 05:33PM, ip=192.168.56.1
 user=test, timestamp=2022-07-27 05:33PM, ip=192.168.56.1
 user=test, timestamp=2022-07-27 05:37PM, ip=192.168.56.1
+user=dummy, timestamp=2022-08-02 08:27PM, ip=192.168.56.1
