@@ -24,12 +24,6 @@ def index():
     """
     return render_template("index.html", cur_date=datetime.now())
 
-@app.route("/hello/")
-def hello(name=None):
-    """
-    Page prints hello <name>
-    """
-    return render_template("hello.html", name=name)
     
 @app.route("/home/", methods=["GET", "POST"])
 def home(current_user=None):
