@@ -15,11 +15,11 @@ UNSECURE_FILE = "CommonPasswords.txt"
 LOG_FILE = "log.txt"
 
 #Password requirements
-LENGTH = 4
+LENGTH = 8
 LOWER = True
-UPPER = False
-NUMBER = False
-SPECIAL = False
+UPPER = True
+NUMBER = True
+SPECIAL = True
 
 def __secure_check(password):
     """Verify that candidate password meets all criteria"""
