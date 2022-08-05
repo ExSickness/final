@@ -2,11 +2,13 @@
 
 <html>
 	<!-- Get css style and declare title -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 	<head>
-		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 		<title>Login</title>
 	</head>
+
 <body>
+	
 
 	<!-- Display flashed messages -->
 	{% with messages = get_flashed_messages() %}
@@ -16,16 +18,21 @@
 			{% endfor %}
 		{% endif %}
 	{% endwith %}
-	
-	<h1>Login</h1>
-	<form method=post>
+	<div class="container">
+	<h1>CMSC Bank Customer Login</h1>
+	</div>
+	<div class="formcontain">
+	<form class="form1" method=post>
 		<label for="username">Username:</label><br>
-		<input type="text" id="username" name="username" value = "{{request.form.username}}"><br>
+		<input class="forminput" type="text" id="username" name="username" value = "{{request.form.username}}"><br>
 		<label for="password">Password:</label><br>
-		<input type="password" id="password" name="password" value = "{{request.form.password}}"><br>
-		<input type="submit" value="Login">
+		<input class="forminput" type="password" id="password" name="password" value = "{{request.form.password}}"><br>
+		<button class="submit_btn" type="submit" value="Login">Login </button> 
 	</form>
-	
+	</div>
+	<div class="container">
 	<br><a href="/register">Register</a>
+	</div>	
 <body>
+
 <html>
