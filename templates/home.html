@@ -11,20 +11,27 @@
 			{% endfor %}
 		{% endif %}
 	{% endwith %}
-	
-	<h1>  Hello welcome home {{name}} </h1>
+	<div class="container">
+	<h1>  Hello Welcome {{name}} </h1>
 	<h2> You current balance is ${{balance}} </h2>
-	
-	<form method=post>
+	</div>
+
+	<div class="formcontain">
+	<form class="form1" method=post>
 		<label for="deposit">Deposit $</label>
-		<input type="number" min="0" step="0.01" value="0" id="deposit" name="deposit" value = "{{request.form.deposit}}"><br>
+		<input class="forminput" type="number" min="0" step="0.01" value="0" id="deposit" name="deposit" value = "{{request.form.deposit}}"><br>
 		<label for="withdraw">Withdraw $</label>
-		<input type="number" min="0" step="0.01" value="0" id="withdraw" name="withdraw" value = "{{request.form.withdraw}}"><br>
-		<input type="submit" value="Submit">
-	</form>
+		<input class="forminput" type="number" min="0" step="0.01" value="0" id="withdraw" name="withdraw" value = "{{request.form.withdraw}}"><br>
+		<!-- <input type="submit" value="Submit"> -->
+		<button class="submit_btn" type="submit" value="Submit">Submit</button> 
+	
 	
 	<h3> <a href="/update/"> Update Password</a> </h3>
-	<h3> <a href="/logout/"> Logout</a> </h3>
-	
+	<h3> <a href="/logout/"> Logout</a> </h3> 
+	</form>
+
+
+	</div>
+
 </body>
 </html>
