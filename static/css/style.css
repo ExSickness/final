@@ -133,6 +133,9 @@
 
 .forminput {
     margin:20px 0;
+    padding:10px;
+    border:2px solid rgb(134, 142, 177);
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
 .submit_btn {
@@ -172,3 +175,13 @@
     box-shadow: inset 200px 0 0 0 #064bf9;
     cursor: pointer;
 }
+
+textarea {
+    width:100%;
+    resize: vertical;
+    padding:15px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:150px;
+  }
