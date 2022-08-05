@@ -122,6 +122,15 @@
 
 }
 
+.form2 {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin:10px 0;
+
+}
+
 .forminput {
     margin:20px 0;
 }
@@ -141,6 +150,25 @@
 }
 
 .submit_btn:hover {
+    box-shadow: inset 200px 0 0 0 #064bf9;
+    cursor: pointer;
+}
+
+.submit_btn2 {
+
+    width: 100px;
+    height: 25px;
+    border: none;
+    color: white;
+    background-color: rgb(106, 125, 250);
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 0 #e5f906;
+    transition: ease-out 0.3s;
+    font-size: 1rem;
+    outline: none;
+}
+
+.submit_btn2:hover {
     box-shadow: inset 200px 0 0 0 #064bf9;
     cursor: pointer;
 }
