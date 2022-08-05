@@ -3,7 +3,7 @@
 <html>
 	<!-- Get css style and declare title -->
 	<head>
-		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 		<title>Update Password</title>
 	</head>
 <body>
@@ -19,29 +19,35 @@
 	
 	<!-- Lock page behind login -->
 	{% if LOGGED_IN %}
+		<div class="container">
+		<h1>Update User Account Password</h1>
+		<div>
 
-		<h1>Update Password</h1>
-		<form method=post>
+		<div class="formcontain">
+		<form class="form1" method=post>
 			<div>
 				<label for="password">New Password:</label><br>
-				<input type="password" id="password" name="password"\
+				<input class="forminput" type="password" id="password" name="password"\
 				placeholder="Enter Password" required value = "{{request.form.password}}"><br>
 				
 			</div><div>
 				<label for="confirm">Confirm New Password:</label><br>
-				<input type="password" id="confirm" name="confirm"\
+				<input class="forminput" type="password" id="confirm" name="confirm"\
 				placeholder="Confirm Password" required value = "{{request.form.confirm}}"><br>
-				<input type="submit" value="Reset Password">
+				<!-- <input type="submit" value="Reset Password"> -->
+				<button class="submit_btn" value="Reset Password">Reset</button> 
 			</div>
-
 
 			
 		</form>
-	
+		<div>
+
 	{% else %}
+		<div class="container">
 		You must be logged in to view this page.<br>
 		<a href="/register">Register</a>
 		<a href="/login"> Login</a>
+		<div>
 	{% endif %}
 	
 <body>
